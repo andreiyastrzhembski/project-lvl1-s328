@@ -1,11 +1,14 @@
 {
   "name": "brain-games-by-ayastr",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "simle logic game",
   "bin": {
      "brain-games": "dist/bin/brain-games.js"
    },
+   "keywords": [
+     "game",
+     "hexlet"
+   ],
    "files": [
     "dist"
   ],
@@ -19,7 +22,7 @@
     "type": "git",
     "url": "git+https://github.com/andreiyastrzhembski/project-lvl1-s328.git"
   },
-  "author": "",
+  "author": "Andrei Yastrzhembski",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/andreiyastrzhembski/project-lvl1-s328/issues"
