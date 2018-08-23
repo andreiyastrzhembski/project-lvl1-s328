@@ -4,7 +4,7 @@ import greet, { getRandomInt } from '..';
 const isEven = number => number % 2 === 0;
 
 const playEven = () => {
-  const userName = greet();
+  const userName = greet('Answer "yes" if number even otherwise answer "no".\n');
   const maxNum = 100;
   const maxAttempts = 3;
   for (let i = 0; i < maxAttempts; i += 1) {

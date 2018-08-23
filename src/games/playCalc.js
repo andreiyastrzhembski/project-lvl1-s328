@@ -29,7 +29,7 @@ const getCorrectAnswer = (a, b, operation) => {
 };
 
 const playCalc = () => {
-  const userName = greet();
+  const userName = greet('What is the result of the expression?\n');
   const max = 30;
   for (let i = 0; i < 3; i += 1) {
     const operation = getOperation();
