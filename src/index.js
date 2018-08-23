@@ -1,18 +1,17 @@
 import readlineSync from 'readline-sync';
 
-let userName;
-
 const greet = () => {
-  userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
+  return name;
 };
 
 export default greet;
 
-const getRandomInt = max => Math.floor(Math.random() * Math.floor(max));
+export const getRandomInt = max => Math.floor(Math.random() * Math.floor(max));
 
 export const playEven = () => {
-  console.log('\n');
+  const userName = greet();
   const max = 100;
   for (let i = 0; i < 3; i += 1) {
     const num = getRandomInt(max);
