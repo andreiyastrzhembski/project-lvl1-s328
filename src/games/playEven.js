@@ -1,21 +1,18 @@
 import readlineSync from 'readline-sync';
 import greet, { getRandomInt } from '..';
 
+const isEven = number => number % 2 === 0;
+
 const playEven = () => {
   const userName = greet();
-  const max = 100;
-  for (let i = 0; i < 3; i += 1) {
-    const num = getRandomInt(max);
-    let isEven = false;
-    if (num % 2 === 0) {
-      isEven = true;
-    }
-    const correctAnswer = num % 2 === 0 ? 'yes' : 'no';
-    console.log(`Question: ${num}`);
+  const maxNum = 100;
+  const maxAttempts = 3;
+  for (let i = 0; i < maxAttempts; i += 1) {
+    const questionNum = getRandomInt(maxNum);
+    const correctAnswer = isEven(questionNum) ? 'yes' : 'no';
+    console.log(`Question: ${questionNum}`);
     const answer = readlineSync.question('Your answer: ');
-    if (isEven && answer === 'yes') {
-      console.log('Correct!');
-    } else if (!isEven && answer === 'no') {
+    if (answer === correctAnswer) {
       console.log('Correct!');
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);
