@@ -9,3 +9,5 @@
 <a href="https://asciinema.org/a/mn4w9O2tmjQWPM9u28ff3IKlI" target="_blank"><img src="https://asciinema.org/a/mn4w9O2tmjQWPM9u28ff3IKlI.png" /></a>
 <br>brain-gcd:<br>
 <a href="https://asciinema.org/a/HI47oBOiOnkDUaDbPR9oU6Uqz" target="_blank"><img src="https://asciinema.org/a/HI47oBOiOnkDUaDbPR9oU6Uqz.png" /></a>
+<br>brain-balance:<br>
+<a href="https://asciinema.org/a/JshPWCIJAT0iRgGFahnIMmeZp" target="_blank"><img src="https://asciinema.org/a/JshPWCIJAT0iRgGFahnIMmeZp.png" /></a>
