@@ -22,8 +22,8 @@ const playGcd = () => {
     if (!checkAnswer(answer, correctAnswer, userName)) {
       return;
     }
-    congrat(userName);
   }
+  congrat(userName);
 };
 
 export default playGcd;

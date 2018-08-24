@@ -1,6 +1,6 @@
 {
   "name": "brain-games-by-ayastr",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "simple logic game",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
