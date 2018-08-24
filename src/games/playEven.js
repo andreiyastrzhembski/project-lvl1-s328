@@ -8,9 +8,9 @@ const playEven = () => {
   const maxNum = 100;
   const maxAttempts = 3;
   for (let i = 0; i < maxAttempts; i += 1) {
-    const questionNum = getRandomInt(maxNum);
-    const correctAnswer = isEven(questionNum) ? 'yes' : 'no';
-    console.log(`Question: ${questionNum}`);
+    const question = getRandomInt(maxNum);
+    const correctAnswer = isEven(question) ? 'yes' : 'no';
+    console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
     if (answer === correctAnswer) {
       console.log('Correct!');

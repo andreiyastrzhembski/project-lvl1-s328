@@ -3,38 +3,39 @@ import greet, { getRandomInt } from '..';
 
 const getOperation = () => {
   const num = getRandomInt(3);
-  if (num === 0) {
-    return '+';
+  switch (num) {
+    case 0:
+      return '+';
+    case 1:
+      return '-';
+    case 2:
+      return '*';
+    default:
+      return null;
   }
-  if (num === 1) {
-    return '-';
-  }
-  if (num === 2) {
-    return '*';
-  }
-  return null;
 };
 
 const getCorrectAnswer = (a, b, operation) => {
-  if (operation === '+') {
-    return a + b;
+  switch (operation) {
+    case '+':
+      return a + b;
+    case '-':
+      return a - b;
+    case '*':
+      return a * b;
+    default:
+      return null;
   }
-  if (operation === '-') {
-    return a - b;
-  }
-  if (operation === '*') {
-    return a * b;
-  }
-  return null;
 };
 
 const playCalc = () => {
   const userName = greet('What is the result of the expression?\n');
-  const max = 30;
-  for (let i = 0; i < 3; i += 1) {
+  const maxNum = 30;
+  const maxAttempts = 3;
+  for (let i = 0; i < maxAttempts; i += 1) {
     const operation = getOperation();
-    const a = getRandomInt(max);
-    const b = getRandomInt(max);
+    const a = getRandomInt(maxNum);
+    const b = getRandomInt(maxNum);
 
     const correctAnswer = getCorrectAnswer(a, b, operation);
     console.log(`Question: ${a} ${operation} ${b}`);
