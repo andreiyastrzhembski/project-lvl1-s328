@@ -11,3 +11,22 @@ const greet = (gameDescription) => {
 export default greet;
 
 export const getRandomInt = max => Math.floor(Math.random() * Math.floor(max));
+
+export const getAnswer = (question) => {
+  console.log(`Question: ${question}`);
+  return readlineSync.question('Your answer: ').toString();
+};
+
+export const checkAnswer = (answer, correctAnswer, userName) => {
+  if (answer.toString() === correctAnswer.toString()) {
+    console.log('Correct!\n');
+    return true;
+  }
+  console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);
+  console.log(`Let's try again, ${userName}!\n`);
+  return false;
+};
+
+export const congrat = (userName) => {
+  console.log(`Congratulations, ${userName}!\n`);
+};

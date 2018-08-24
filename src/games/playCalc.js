@@ -1,5 +1,6 @@
-import readlineSync from 'readline-sync';
-import greet, { getRandomInt } from '..';
+import greet, {
+  getRandomInt, getAnswer, checkAnswer, congrat,
+} from '..';
 
 const getOperation = () => {
   const num = getRandomInt(3);
@@ -36,20 +37,14 @@ const playCalc = () => {
     const operation = getOperation();
     const a = getRandomInt(maxNum);
     const b = getRandomInt(maxNum);
-
+    const question = `${a} ${operation} ${b}`;
     const correctAnswer = getCorrectAnswer(a, b, operation);
-    console.log(`Question: ${a} ${operation} ${b}`);
-    const answer = readlineSync.question('Your answer: ');
-
-    if (answer.toString() === correctAnswer.toString()) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);
-      console.log(`Let's try again, ${userName}!`);
+    const answer = getAnswer(question);
+    if (!checkAnswer(answer, correctAnswer, userName)) {
       return;
     }
   }
-  console.log(`Congratulations, ${userName}!`);
+  congrat(userName);
 };
 
 export default playCalc;
