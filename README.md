@@ -2,7 +2,7 @@
 <a href="https://codeclimate.com/github/andreiyastrzhembski/project-lvl1-s328/test_coverage"><img src="https://api.codeclimate.com/v1/badges/59f03761b21cbf3b65c1/test_coverage" /></a>
 <a href="https://travis-ci.org/andreiyastrzhembski/project-lvl1-s328"><img src="https://travis-ci.org/andreiyastrzhembski/project-lvl1-s328.svg?branch=master"></a>
 <br>installation:<br>
-<script src="https://asciinema.org/a/szCnziRdpcgv7Wyx7bjCVRpg4.js" id="asciicast-szCnziRdpcgv7Wyx7bjCVRpg4" async></script>
+<a href="https://asciinema.org/a/szCnziRdpcgv7Wyx7bjCVRpg4" target="_blank"><img src="https://asciinema.org/a/szCnziRdpcgv7Wyx7bjCVRpg4.png" /></a>
 <br>brain-even:<br>
 <a href="https://asciinema.org/a/KhBx2WDyWvayM46ZtdIJhtVXm" target="_blank"><img src="https://asciinema.org/a/KhBx2WDyWvayM46ZtdIJhtVXm.png" /></a>
 <br>brain-calc:<br>
