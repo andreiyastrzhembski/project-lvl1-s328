@@ -1,6 +1,6 @@
-import greet, {
-  getRandomInt, getAnswer, checkAnswer, congrat,
-} from '..';
+import { getRandomInt } from '..';
+import { cons } from 'hexlet-pairs';
+import launchGame from '../gameEngine';
 
 const getOperation = () => {
   const num = getRandomInt(3);
@@ -29,22 +29,18 @@ const getCorrectAnswer = (a, b, operation) => {
   }
 };
 
+const getQuestion = () => {
+  const maxNum = 100;
+  const operation = getOperation();
+  const a = getRandomInt(maxNum);
+  const b = getRandomInt(maxNum);
+  const question = `${a} ${operation} ${b}`;
+  const correctAnswer = getCorrectAnswer(a, b, operation);
+  return cons(question, correctAnswer);
+};
+
 const playCalc = () => {
-  const userName = greet('What is the result of the expression?\n');
-  const maxNum = 30;
-  const maxAttempts = 3;
-  for (let i = 0; i < maxAttempts; i += 1) {
-    const operation = getOperation();
-    const a = getRandomInt(maxNum);
-    const b = getRandomInt(maxNum);
-    const question = `${a} ${operation} ${b}`;
-    const correctAnswer = getCorrectAnswer(a, b, operation);
-    const answer = getAnswer(question);
-    if (!checkAnswer(answer, correctAnswer, userName)) {
-      return;
-    }
-  }
-  congrat(userName);
+  launchGame('What is the result of the expression?\n', getQuestion);
 };
 
 export default playCalc;

@@ -1,6 +1,6 @@
-import greet, {
-  getRandomInt, getAnswer, checkAnswer, congrat,
-} from '..';
+import { getRandomInt } from '..';
+import { cons } from 'hexlet-pairs';
+import launchGame from '../gameEngine';
 
 const findGcd = (a, b) => {
   if (b === 0) {
@@ -9,21 +9,17 @@ const findGcd = (a, b) => {
   return findGcd(b, a % b);
 };
 
-const playGcd = () => {
-  const userName = greet('Find the greatest common divisor of given numbers.');
+const getQuestion = () => {
   const maxNum = 100;
-  const maxAttempts = 3;
-  for (let i = 0; i < maxAttempts; i += 1) {
-    const a = getRandomInt(maxNum);
-    const b = getRandomInt(maxNum);
-    const question = `${a} ${b}`;
-    const correctAnswer = findGcd(a, b);
-    const answer = getAnswer(question);
-    if (!checkAnswer(answer, correctAnswer, userName)) {
-      return;
-    }
-  }
-  congrat(userName);
+  const a = getRandomInt(maxNum);
+  const b = getRandomInt(maxNum);
+  const question = `${a} ${b}`;
+  const correctAnswer = findGcd(a, b);
+  return cons(question, correctAnswer);
+};
+
+const playGcd = () => {
+  launchGame('Find the greatest common divisor of given numbers.\n', getQuestion);
 };
 
 export default playGcd;

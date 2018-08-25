@@ -1,6 +1,6 @@
-import greet, {
-  getRandomInt, getAnswer, checkAnswer, congrat,
-} from '..';
+import { getRandomInt } from '..';
+import { cons } from 'hexlet-pairs';
+import launchGame from '../gameEngine';
 
 const getMin = (num) => {
   let number = num;
@@ -98,19 +98,15 @@ const getBalancedNum = (num) => {
   return number;
 };
 
-const playBalance = () => {
-  const userName = greet('Balance the given number.\n');
+const getQuestion = () => {
   const maxNum = 10000;
-  const maxAttempts = 3;
-  for (let i = 0; i < maxAttempts; i += 1) {
-    const question = getRandomInt(maxNum);
-    const correctAnswer = getBalancedNum(question);
-    const answer = getAnswer(question);
-    if (!checkAnswer(answer, correctAnswer, userName)) {
-      return;
-    }
-  }
-  congrat(userName);
+  const question = getRandomInt(maxNum);
+  const correctAnswer = getBalancedNum(question);
+  return cons(question, correctAnswer);
+};
+
+const playBalance = () => {
+  launchGame('Balance the given number.\n', getQuestion);
 };
 
 export default playBalance;
