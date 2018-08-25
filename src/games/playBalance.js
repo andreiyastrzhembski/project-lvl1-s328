@@ -11,7 +11,6 @@ const calcSum = (num) => {
   for (let i = 0; i < number.length; i += 1) {
     sum += Number(number[i]);
   }
-  console.log(`calcSum returned: ${sum}`); // debug
   return sum;
 };
 
@@ -27,8 +26,15 @@ const getNums = (num) => {
     a = Math.floor(sum / len);
     b = a + 1;
   }
-  console.log(`getNums returned: cons(${a}, ${b})`); // debug
   return cons(a, b);
+};
+
+const append = (str, a, j) => {
+  let result = str;
+  for (let i = 0; i < j; i += 1) {
+    result += a.toString();
+  }
+  return result;
 };
 
 const getBalancedNum = (num) => {
@@ -36,23 +42,14 @@ const getBalancedNum = (num) => {
   const a = car(getNums(num));
   const b = cdr(getNums(num));
   const len = num.toString().length;
-  console.log(`inside getBalancedNum: a = ${a}; b = ${b}; len = ${len}`); // debug
   if (a === b) {
-    for (let i = 0; i < len; i += 1) {
-      result += a.toString();
-    }
+    result = append(result, a, len);
   } else {
     const y = (a * len - calcSum(num)) / (a - b);
     const x = len - y;
-    console.log(`inside getBalancedNum: x = ${x}; y = ${y}`); // debug
-    for (let i = 0; i < x; i += 1) {
-      result += a.toString();
-    }
-    for (let i = 0; i < y; i += 1) {
-      result += b.toString();
-    }
+    result = append(result, a, x);
+    result = append(result, b, y);
   }
-  console.log(`getBalancedNum returned: ${result}`); // debug
   return result;
 };
 
