@@ -1,5 +1,5 @@
-import { getRandomInt } from '..';
 import { cons, car, cdr } from 'hexlet-pairs';
+import getRandomInt from '../random';
 import launchGame from '../gameEngine';
 
 const gameDescription = 'What is the result of the expression?';
