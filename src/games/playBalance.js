@@ -2,6 +2,9 @@ import { getRandomInt } from '..';
 import { cons } from 'hexlet-pairs';
 import launchGame from '../gameEngine';
 
+const gameDescription = 'Balance the given number.\n';
+const maxNum = 10000;
+
 const getMin = (num) => {
   let number = num;
   let min = number % 10;
@@ -99,14 +102,9 @@ const getBalancedNum = (num) => {
 };
 
 const getQuestion = () => {
-  const maxNum = 10000;
   const question = getRandomInt(maxNum);
   const correctAnswer = getBalancedNum(question);
   return cons(question, correctAnswer);
 };
 
-const playBalance = () => {
-  launchGame('Balance the given number.\n', getQuestion);
-};
-
-export default playBalance;
+export default () => launchGame(gameDescription, getQuestion);

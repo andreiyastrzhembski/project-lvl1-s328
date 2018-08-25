@@ -1,46 +1,31 @@
 import { getRandomInt } from '..';
-import { cons } from 'hexlet-pairs';
+import { cons, car, cdr } from 'hexlet-pairs';
 import launchGame from '../gameEngine';
 
-const getOperation = () => {
-  const num = getRandomInt(3);
-  switch (num) {
-    case 0:
-      return '+';
-    case 1:
-      return '-';
-    case 2:
-      return '*';
-    default:
-      return null;
-  }
-};
+const gameDescription = 'What is the result of the expression?\n';
+const maxNum = 100;
+const maxOperations = 3;
 
 const getCorrectAnswer = (a, b, operation) => {
   switch (operation) {
-    case '+':
-      return a + b;
-    case '-':
-      return a - b;
-    case '*':
-      return a * b;
+    case 0:
+      return cons('+', a + b);
+    case 1:
+      return cons('-', a - b);
+    case 2:
+      return cons('*', a * b);
     default:
       return null;
   }
 };
 
 const getQuestion = () => {
-  const maxNum = 100;
-  const operation = getOperation();
+  const operation = getRandomInt(maxOperations);
   const a = getRandomInt(maxNum);
   const b = getRandomInt(maxNum);
-  const question = `${a} ${operation} ${b}`;
-  const correctAnswer = getCorrectAnswer(a, b, operation);
+  const question = `${a} ${car(getCorrectAnswer(a, b, operation))} ${b}`;
+  const correctAnswer = cdr(getCorrectAnswer(a, b, operation));
   return cons(question, correctAnswer);
 };
 
-const playCalc = () => {
-  launchGame('What is the result of the expression?\n', getQuestion);
-};
-
-export default playCalc;
+export default () => launchGame(gameDescription, getQuestion);

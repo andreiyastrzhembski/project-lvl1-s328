@@ -3,10 +3,10 @@ import greet, {
   getAnswer, checkAnswer, congrat,
 } from '.';
 
+const maxAttempts = 3;
 
 const launchGame = (gameDescription, getQuestion) => {
   const userName = greet(gameDescription);
-  const maxAttempts = 3;
   for (let i = 0; i < maxAttempts; i += 1) {
     const questionData = getQuestion();
     const question = car(questionData);
