@@ -2,7 +2,7 @@ import { getRandomInt } from '..';
 import { cons, car, cdr } from 'hexlet-pairs';
 import launchGame from '../gameEngine';
 
-const gameDescription = 'What is the result of the expression?\n';
+const gameDescription = 'What is the result of the expression?';
 const maxNum = 100;
 const maxOperations = 3;
 

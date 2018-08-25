@@ -2,7 +2,7 @@ import { getRandomInt } from '..';
 import { cons } from 'hexlet-pairs';
 import launchGame from '../gameEngine';
 
-const gameDescription = 'Balance the given number.\n';
+const gameDescription = 'Balance the given number.';
 const maxNum = 10000;
 
 const getMin = (num) => {
