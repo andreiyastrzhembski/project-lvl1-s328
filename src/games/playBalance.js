@@ -1,104 +1,59 @@
-import { cons } from 'hexlet-pairs';
+import { cons, car, cdr } from 'hexlet-pairs';
 import getRandomInt from '../random';
 import launchGame from '../gameEngine';
 
 const gameDescription = 'Balance the given number.';
 const maxNum = 10000;
 
-const getMin = (num) => {
-  let number = num;
-  let min = number % 10;
-  while (number > 0) {
-    const current = number % 10;
-    number = Math.floor(number / 10);
-    if (current < min) {
-      min = current;
-    }
-  }
-  return min;
-};
-
-const getMax = (num) => {
-  let number = num;
-  let max = number % 10;
-  while (number > 0) {
-    const current = number % 10;
-    number = Math.floor(number / 10);
-    if (current > max) {
-      max = current;
-    }
-  }
-  return max;
-};
-
-const isBalanced = (num) => {
-  if (getMax(num) - getMin(num) <= 1) {
-    return true;
-  }
-  return false;
-};
-
-const hasRightOrder = (num) => {
-  const number = num;
-  for (let i = 0; i < number.length; i += 1) {
-    if (number[i] > number[i + 1]) {
-      return false;
-    }
-  }
-  return true;
-};
-
-const changeOrder = (num) => {
-  let result = '';
-  const number = num;
-  for (let i = 0; i < number.length; i += 1) {
-    if (number[i] > number[i + 1]) {
-      result += number[i + 1] + number[i];
-      i += 1;
-    } else {
-      result += number[i];
-    }
-  }
-  return result;
-};
-
-const balance = (num) => {
-  let result = '';
+const calcSum = (num) => {
   const number = num.toString();
-  let minIndex;
-  let maxIndex;
+  let sum = 0;
   for (let i = 0; i < number.length; i += 1) {
-    if (num[i] === getMin(num).toString()) {
-      minIndex = i;
-    }
-    if (num[i] === getMax(num).toString()) {
-      maxIndex = i;
-    }
+    sum += Number(number[i]);
   }
-  for (let i = 0; i < number.length; i += 1) {
-    if (i === minIndex) {
-      result += (getMin(num) + 1).toString();
-    } else if (i === maxIndex) {
-      result += (getMax(num) - 1).toString();
-    } else {
-      result += number[i];
-    }
+  console.log(`calcSum returned: ${sum}`); // debug
+  return sum;
+};
+
+const getNums = (num) => {
+  const sum = calcSum(num);
+  let a;
+  let b;
+  const len = num.toString().length;
+  if (sum % len === 0) {
+    a = sum / len;
+    b = a;
+  } else {
+    a = Math.floor(sum / len);
+    b = a + 1;
   }
-  return result;
+  console.log(`getNums returned: cons(${a}, ${b})`); // debug
+  return cons(a, b);
 };
 
 const getBalancedNum = (num) => {
-  let number = num;
-  if (isBalanced(number) && hasRightOrder(number)) {
-    return number;
+  let result = '';
+  const a = car(getNums(num));
+  const b = cdr(getNums(num));
+  const len = num.toString().length;
+  console.log(`inside getBalancedNum: a = ${a}; b = ${b}; len = ${len}`); // debug
+  if (a === b) {
+    for (let i = 0; i < len; i += 1) {
+      result += a.toString();
+    }
+  } else {
+    const y = (a * len - calcSum(num)) / (a - b);
+    const x = len - y;
+    console.log(`inside getBalancedNum: x = ${x}; y = ${y}`); // debug
+    for (let i = 0; i < x; i += 1) {
+      result += a.toString();
+    }
+    for (let i = 0; i < y; i += 1) {
+      result += b.toString();
+    }
   }
-  while (!isBalanced(number)) {
-    number = balance(number);
-  }
-  while (!hasRightOrder(number)) {
-    number = changeOrder(number);
-  }
-  return number;
+  console.log(`getBalancedNum returned: ${result}`); // debug
+  return result;
 };
 
 const getQuestion = () => {
