@@ -13,3 +13,5 @@
 <a href="https://asciinema.org/a/JshPWCIJAT0iRgGFahnIMmeZp" target="_blank"><img src="https://asciinema.org/a/JshPWCIJAT0iRgGFahnIMmeZp.png" /></a>
 <br>brain-progression:<br>
 <a href="https://asciinema.org/a/n3WDbnN0Zf9E315ZEACzBzw55" target="_blank"><img src="https://asciinema.org/a/n3WDbnN0Zf9E315ZEACzBzw55.png" /></a>
+<br>brain-prime:<br>
+<a href="https://asciinema.org/a/GeeTyNhU9SegLZkxfcJ1f80uu" target="_blank"><img src="https://asciinema.org/a/GeeTyNhU9SegLZkxfcJ1f80uu.png" /></a>
