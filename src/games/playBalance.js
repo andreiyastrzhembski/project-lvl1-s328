@@ -14,7 +14,7 @@ const calcSum = (num) => {
   return sum;
 };
 
-const getNums = (num) => {
+const getBalancedNums = (num) => {
   const sum = calcSum(num);
   let a;
   let b;
@@ -36,10 +36,10 @@ const append = (a, i) => {
   return `${a}${append(a, i - 1)}`;
 };
 
-const getBalancedNum = (num) => {
+const makeBalanced = (num) => {
   let result = '';
-  const a = car(getNums(num));
-  const b = cdr(getNums(num));
+  const a = car(getBalancedNums(num));
+  const b = cdr(getBalancedNums(num));
   const len = num.toString().length;
   if (a === b) {
     result += append(a, len);
@@ -54,7 +54,7 @@ const getBalancedNum = (num) => {
 
 const getQuestion = () => {
   const question = getRandomInt(maxNum);
-  const correctAnswer = getBalancedNum(question);
+  const correctAnswer = makeBalanced(question);
   return cons(question, correctAnswer);
 };
 
