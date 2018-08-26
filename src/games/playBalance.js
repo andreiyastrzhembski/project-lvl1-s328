@@ -1,5 +1,5 @@
 import { cons, car, cdr } from 'hexlet-pairs';
-import getRandomInt from '../random';
+import getRandomInt from '../utils';
 import launchGame from '../gameEngine';
 
 const gameDescription = 'Balance the given number.';
