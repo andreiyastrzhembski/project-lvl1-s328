@@ -6,7 +6,7 @@ const gameDescription = 'What is the result of the expression?';
 const maxNum = 100;
 const maxOperations = 2;
 
-const getQuestionAndCorrectAnswer = (a, b, operation) => {
+const getExprAndCorrectAnswer = (a, b, operation) => {
   switch (operation) {
     case 0:
       return cons(`${a} + ${b}`, a + b);
@@ -19,13 +19,14 @@ const getQuestionAndCorrectAnswer = (a, b, operation) => {
   }
 };
 
-const getQuestion = () => {
+const getQuestionAndCorrectAnswer = () => {
   const a = getRandomInt(maxNum);
   const b = getRandomInt(maxNum);
   const operation = getRandomInt(maxOperations);
-  const question = car(getQuestionAndCorrectAnswer(a, b, operation));
-  const correctAnswer = cdr(getQuestionAndCorrectAnswer(a, b, operation)).toString();
+  const exprAndCorrectAnswer = getExprAndCorrectAnswer(a, b, operation);
+  const question = car(exprAndCorrectAnswer);
+  const correctAnswer = cdr(exprAndCorrectAnswer).toString();
   return cons(question, correctAnswer);
 };
 
-export default () => launchGame(gameDescription, getQuestion);
+export default () => launchGame(gameDescription, getQuestionAndCorrectAnswer);

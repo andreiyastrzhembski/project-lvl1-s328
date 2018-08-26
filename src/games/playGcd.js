@@ -12,7 +12,7 @@ const findGcd = (a, b) => {
   return findGcd(b, a % b);
 };
 
-const getQuestion = () => {
+const getQuestionAndCorrectAnswer = () => {
   const a = getRandomInt(maxNum);
   const b = getRandomInt(maxNum);
   const question = `${a} ${b}`;
@@ -20,4 +20,4 @@ const getQuestion = () => {
   return cons(question, correctAnswer);
 };
 
-export default () => launchGame(gameDescription, getQuestion);
+export default () => launchGame(gameDescription, getQuestionAndCorrectAnswer);

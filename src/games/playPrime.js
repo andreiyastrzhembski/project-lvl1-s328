@@ -14,10 +14,10 @@ const isPrime = (num) => {
   return num !== 1;
 };
 
-const getQuestion = () => {
+const getQuestionAndCorrectAnswer = () => {
   const question = getRandomInt(maxNum, 1);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return cons(`Is this number prime? ${question}`, correctAnswer);
 };
 
-export default () => launchGame(gameDescription, getQuestion);
+export default () => launchGame(gameDescription, getQuestionAndCorrectAnswer);

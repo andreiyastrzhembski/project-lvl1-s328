@@ -39,8 +39,9 @@ const append = (a, i) => {
 
 const makeBalanced = (num) => {
   let result = '';
-  const a = car(getBalancedNums(num));
-  const b = cdr(getBalancedNums(num));
+  const balancedNums = getBalancedNums(num);
+  const a = car(balancedNums);
+  const b = cdr(balancedNums);
   const len = num.toString().length;
   if (a === b) {
     result += append(a, len);
@@ -53,10 +54,10 @@ const makeBalanced = (num) => {
   return result;
 };
 
-const getQuestion = () => {
+const getQuestionAndCorrectAnswer = () => {
   const question = getRandomInt(maxNum, minNum);
   const correctAnswer = makeBalanced(question);
   return cons(question, correctAnswer);
 };
 
-export default () => launchGame(gameDescription, getQuestion);
+export default () => launchGame(gameDescription, getQuestionAndCorrectAnswer);

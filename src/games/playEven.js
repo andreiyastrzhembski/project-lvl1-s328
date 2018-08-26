@@ -7,10 +7,10 @@ const maxNum = 100;
 
 const isEven = number => number % 2 === 0;
 
-const getQuestion = () => {
+const getQuestionAndCorrectAnswer = () => {
   const question = getRandomInt(maxNum);
   const correctAnswer = isEven(question) ? 'yes' : 'no';
   return cons(question, correctAnswer);
 };
 
-export default () => launchGame(gameDescription, getQuestion);
+export default () => launchGame(gameDescription, getQuestionAndCorrectAnswer);
