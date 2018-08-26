@@ -29,12 +29,11 @@ const getNums = (num) => {
   return cons(a, b);
 };
 
-const append = (str, a, j) => {
-  let result = str;
-  for (let i = 0; i < j; i += 1) {
-    result += a.toString();
+const append = (a, i) => {
+  if (i === 1) {
+    return `${a}`;
   }
-  return result;
+  return `${a}${append(a, i - 1)}`;
 };
 
 const getBalancedNum = (num) => {
@@ -43,12 +42,12 @@ const getBalancedNum = (num) => {
   const b = cdr(getNums(num));
   const len = num.toString().length;
   if (a === b) {
-    result = append(result, a, len);
+    result += append(a, len);
   } else {
     const y = (a * len - calcSum(num)) / (a - b);
     const x = len - y;
-    result = append(result, a, x);
-    result = append(result, b, y);
+    result += append(a, x);
+    result += append(b, y);
   }
   return result;
 };
