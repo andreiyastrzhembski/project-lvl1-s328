@@ -4,6 +4,7 @@ import launchGame from '../gameEngine';
 
 const gameDescription = 'Balance the given number.';
 const maxNum = 10000;
+const minNum = 100;
 
 const calcSum = (num) => {
   const number = num.toString();
@@ -53,7 +54,7 @@ const makeBalanced = (num) => {
 };
 
 const getQuestion = () => {
-  const question = getRandomInt(maxNum);
+  const question = getRandomInt(maxNum, minNum);
   const correctAnswer = makeBalanced(question);
   return cons(question, correctAnswer);
 };

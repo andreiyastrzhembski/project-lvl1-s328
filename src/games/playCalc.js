@@ -4,7 +4,7 @@ import launchGame from '../gameEngine';
 
 const gameDescription = 'What is the result of the expression?';
 const maxNum = 100;
-const maxOperations = 3;
+const maxOperations = 2;
 
 const getQuestionAndCorrectAnswer = (a, b, operation) => {
   switch (operation) {
