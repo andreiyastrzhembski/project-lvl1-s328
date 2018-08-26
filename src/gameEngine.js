@@ -14,7 +14,7 @@ const launchGame = (gameDescription, getQuestion) => {
     const correctAnswer = cdr(questionData);
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
-    if (answer.toString() === correctAnswer.toString()) {
+    if (answer === correctAnswer) { // .toString()
       console.log('Correct!\n');
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);

@@ -24,7 +24,7 @@ const getQuestion = () => {
   const b = getRandomInt(maxNum);
   const operation = getRandomInt(maxOperations);
   const question = car(getQuestionAndCorrectAnswer(a, b, operation));
-  const correctAnswer = cdr(getQuestionAndCorrectAnswer(a, b, operation));
+  const correctAnswer = cdr(getQuestionAndCorrectAnswer(a, b, operation)).toString();
   return cons(question, correctAnswer);
 };
 

@@ -16,7 +16,7 @@ const getQuestion = () => {
   const a = getRandomInt(maxNum);
   const b = getRandomInt(maxNum);
   const question = `${a} ${b}`;
-  const correctAnswer = findGcd(a, b);
+  const correctAnswer = findGcd(a, b).toString();
   return cons(question, correctAnswer);
 };
 
