@@ -1,4 +1,4 @@
-import { cons, car, cdr } from 'hexlet-pairs';
+import { cons } from 'hexlet-pairs';
 import getRandomInt from '../utils';
 import launchGame from '../gameEngine';
 
@@ -7,9 +7,8 @@ const progressionLength = 10;
 const maxStartNum = 100;
 const maxStep = 10;
 
-const getProgressionAndCorrectAnswer = (startNum, step, xPosition) => {
+const getProgression = (startNum, step, xPosition) => {
   let progression = '';
-  const correctAnswer = startNum + step * xPosition;
   for (let i = 1; i <= progressionLength; i += 1) {
     if (i === xPosition) {
       progression += ' ..';
@@ -17,16 +16,15 @@ const getProgressionAndCorrectAnswer = (startNum, step, xPosition) => {
       progression += ` ${startNum + step * i}`;
     }
   }
-  return cons(progression, correctAnswer);
+  return progression;
 };
 
 const getQuestionAndCorrectAnswer = () => {
   const startNum = getRandomInt(maxStartNum);
   const step = getRandomInt(maxStep, 1);
   const xPosition = getRandomInt(progressionLength, 1);
-  const progressionAndCorrectAnswer = getProgressionAndCorrectAnswer(startNum, step, xPosition);
-  const question = car(progressionAndCorrectAnswer);
-  const correctAnswer = cdr(progressionAndCorrectAnswer).toString();
+  const question = getProgression(startNum, step, xPosition);
+  const correctAnswer = (startNum + step * xPosition).toString();
   return cons(question, correctAnswer);
 };
 
